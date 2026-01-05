@@ -10,7 +10,7 @@ function App() {
 
   // Load progress from localStorage
   useEffect(() => {
-    const savedProgress = localStorage.getItem('multiplicationGameProgressAll');
+    const savedProgress = localStorage.getItem('multiplicationGameProgress');
     if (savedProgress) {
       setUnlockedDays(JSON.parse(savedProgress));
     }
@@ -19,13 +19,7 @@ function App() {
   // Save progress to localStorage
   const saveProgress = (newUnlockedDays) => {
     setUnlockedDays(newUnlockedDays);
-    localStorage.setItem('multiplicationGameProgressAll', JSON.stringify(newUnlockedDays));
-  };
-
-  const resetProgress = () => {
-    localStorage.removeItem('multiplicationGameProgressAll');
-    setUnlockedDays([1]);
-    setCurrentScreen('daySelection');
+    localStorage.setItem('multiplicationGameProgress', JSON.stringify(newUnlockedDays));
   };
 
   const handleSelectDay = (day) => {
@@ -56,24 +50,26 @@ function App() {
   return (
     <div className="App">
       {currentScreen === 'daySelection' && (
-        <DaySelection
+        <DaySelection 
           onSelectDay={handleSelectDay}
           unlockedDays={unlockedDays}
-          resetProgress={resetProgress}
         />
       )}
+      
       {currentScreen === 'chapterStory' && (
-        <ChapterStory
+        <ChapterStory 
           day={selectedDay}
           onStartGame={handleStartGame}
-          onBack={() => setCurrentScreen('daySelection')}
+          onBack={handleBack}
         />
       )}
+      
       {currentScreen === 'gameBattle' && (
-        <GameBattle
+        <GameBattle 
           day={selectedDay}
           onGameComplete={handleGameComplete}
-          onBack={() => setCurrentScreen('daySelection')}
+          onBack={handleBackToStory}
+          onBackToHome={handleBack}
         />
       )}
     </div>

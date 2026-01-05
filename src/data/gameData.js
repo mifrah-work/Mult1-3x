@@ -83,14 +83,24 @@ export const sounds = {
   wrong: wrongSound
 };
 
-export const multiplicationTables = [3, 4, 6, 7, 8, 9];
+// Only 1, 2, 10, 0, and 11 times tables, not going past 10, and for 11 table, not 10x11 or 11x11
+export const multiplicationTables = [0, 1, 2, 10, 11];
 
 export const generateQuestion = () => {
-  const table = multiplicationTables[Math.floor(Math.random() * multiplicationTables.length)];
-  
-  // All tables only go up to 10 (no 11x11, 11x12, or any x11, x12)
-  const multiplier = Math.floor(Math.random() * 10) + 1;
-  
+  let table = multiplicationTables[Math.floor(Math.random() * multiplicationTables.length)];
+  let multiplier;
+
+  if (table === 11) {
+    // For 11 times table, only 1-9 (not 10 or 11)
+    multiplier = Math.floor(Math.random() * 9) + 1;
+  } else if (table === 0) {
+    // For 0 times table, 1-10
+    multiplier = Math.floor(Math.random() * 10) + 1;
+  } else {
+    // For others, 1-10
+    multiplier = Math.floor(Math.random() * 10) + 1;
+  }
+
   return {
     question: `${table} × ${multiplier}`,
     answer: table * multiplier,
@@ -99,7 +109,7 @@ export const generateQuestion = () => {
   };
 };
 
-export const generateQuestions = (count = 50) => {
+export const generateQuestions = (count = 35) => {
   const questions = [];
   for (let i = 0; i < count; i++) {
     questions.push(generateQuestion());
