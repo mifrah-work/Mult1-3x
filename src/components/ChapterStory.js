@@ -108,10 +108,10 @@ const ChapterStory = ({ day, onStartGame, onBack }) => {
           <div className="bg-yellow-600/20 rounded-2xl p-6 mb-8 border-2 border-yellow-400">
             <h3 className="text-2xl font-bold text-yellow-300 mb-4">🎯 Your Mission</h3>
             <div className="text-white text-left space-y-2">
-              <p>• Answer 35 multiplication questions correctly</p>
+              <p>• Answer 45 multiplication questions correctly</p>
               <p>• Each correct answer powers up your hero's attack</p>
               <p>• Wrong answers give the villain strength</p>
-              <p>• Defeat the villain with 5 or fewer mistakes to win!</p>
+              <p>• Defeat the villain with 10 or fewer mistakes to win!</p>
             </div>
           </div>
           

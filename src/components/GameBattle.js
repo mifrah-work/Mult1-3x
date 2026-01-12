@@ -3,11 +3,12 @@ import { gameData, generateQuestions, sounds } from '../data/gameData';
 
 const GameBattle = ({ day, onGameComplete, onBack, onBackToHome }) => {
   const chapter = gameData[day];
-  const [questions] = useState(() => generateQuestions(35));
+  const [questions] = useState(() => generateQuestions(45));
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
   const [score, setScore] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
+  const maxMistakes = 10;
   const [heroEnergy, setHeroEnergy] = useState(100);
   const [villainEnergy, setVillainEnergy] = useState(100);
   const [gameOver, setGameOver] = useState(false);
@@ -93,7 +94,7 @@ const GameBattle = ({ day, onGameComplete, onBack, onBackToHome }) => {
         }, 100);
       } else {
         // Game finished
-        const won = wrongAnswers + (isCorrect ? 0 : 1) <= 5;
+        const won = wrongAnswers + (isCorrect ? 0 : 1) <= maxMistakes;
         setVictory(won);
         setGameOver(true);
       }
@@ -141,9 +142,9 @@ const GameBattle = ({ day, onGameComplete, onBack, onBackToHome }) => {
           <div className="bg-white/10 rounded-2xl p-6 mb-8">
             <h2 className="text-2xl font-bold text-white mb-4">Battle Results</h2>
             <div className="text-lg text-white space-y-2">
-              <p>Correct Answers: <span className="text-green-400 font-bold">{score}/35</span></p>
-              <p>Wrong Answers: <span className="text-red-400 font-bold">{wrongAnswers}/35</span></p>
-              <p>Accuracy: <span className="text-yellow-400 font-bold">{Math.round((score/35) * 100)}%</span></p>
+              <p>Correct Answers: <span className="text-green-400 font-bold">{score}/45</span></p>
+              <p>Wrong Answers: <span className="text-red-400 font-bold">{wrongAnswers}/45</span></p>
+              <p>Accuracy: <span className="text-yellow-400 font-bold">{Math.round((score/45) * 100)}%</span></p>
             </div>
           </div>
 
@@ -226,7 +227,7 @@ const GameBattle = ({ day, onGameComplete, onBack, onBackToHome }) => {
             </button>
             <div className="text-white text-right">
               <p>Correct: <span className="text-green-400 font-bold">{score}</span></p>
-              <p>Wrong: <span className="text-red-400 font-bold">{wrongAnswers}/5</span></p>
+              <p>Wrong: <span className="text-red-400 font-bold">{wrongAnswers}/{maxMistakes}</span></p>
             </div>
           </div>
         </div>
@@ -354,12 +355,12 @@ const GameBattle = ({ day, onGameComplete, onBack, onBackToHome }) => {
         <div className="bg-black/30 rounded-2xl p-4">
           <div className="flex justify-between items-center mb-2">
             <p className="text-white font-bold">Battle Progress</p>
-            <p className="text-yellow-400 font-bold">{Math.round(((currentQuestionIndex + 1) / 35) * 100)}%</p>
+            <p className="text-yellow-400 font-bold">{Math.round(((currentQuestionIndex + 1) / 45) * 100)}%</p>
           </div>
           <div className="w-full bg-gray-700 rounded-full h-3">
             <div 
               className="bg-gradient-to-r from-blue-400 to-purple-500 h-3 rounded-full transition-all duration-300"
-              style={{ width: `${((currentQuestionIndex + 1) / 35) * 100}%` }}
+              style={{ width: `${((currentQuestionIndex + 1) / 45) * 100}%` }}
             ></div>
           </div>
         </div>

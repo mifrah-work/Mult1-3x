@@ -109,10 +109,10 @@ export const generateQuestion = () => {
   };
 };
 
-export const generateQuestions = (count = 35) => {
+export const generateQuestions = (count = 45) => {
   const questions = [];
-  // First 12 questions: always random 3 times table
-  for (let i = 0; i < 12 && i < count; i++) {
+  // First 30 questions: always random 3 times table
+  for (let i = 0; i < 30 && i < count; i++) {
     const multiplier = Math.floor(Math.random() * 10) + 1;
     questions.push({
       question: `3 × ${multiplier}`,
@@ -122,7 +122,7 @@ export const generateQuestions = (count = 35) => {
     });
   }
   // Remaining questions: random from all tables
-  for (let i = 12; i < count; i++) {
+  for (let i = 30; i < count; i++) {
     questions.push(generateQuestion());
   }
   return questions;

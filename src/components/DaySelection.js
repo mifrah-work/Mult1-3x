@@ -79,7 +79,7 @@ const DaySelection = ({ onSelectDay, unlockedDays }) => {
               <p>• Answer 50 multiplication questions (tables: 1, 2, 3, 4, 5, 10, 11)</p>
               <p>• Correct answers: Your hero attacks! ⚔️</p>
               <p>• Wrong answers: Villain strikes back! 💥</p>
-              <p>• Win condition: Make 3 or fewer mistakes</p>
+              <p>• Win condition: Make 10 or fewer mistakes</p>
               <p>• Victory unlocks the next day! 🚀</p>
             </div>
           </div>
