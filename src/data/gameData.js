@@ -42,8 +42,8 @@ export const gameData = {
   },
   4: {
     title: "Chapter 4",
-    story: "Suzie the Tiger leaps at a demon that jumped into the crowd.",
-    hero: "Suzie the Tiger",
+    story: "Derpythe Tiger leaps at a demon that jumped into the crowd.",
+    hero: "Derpy the Tiger",
     villain: "Crowd Demon",
     heroImage: tigerImg,
     villainImage: demonImg,
