@@ -83,8 +83,8 @@ export const sounds = {
   wrong: wrongSound
 };
 
-// Only 1, 2, 10, 0, and 11 times tables, not going past 10, and for 11 table, not 10x11 or 11x11
-export const multiplicationTables = [0, 1, 2, 10, 11];
+// Only 1, 2, 3, 10, 0, and 11 times tables, not going past 10, and for 11 table, not 10x11 or 11x11
+export const multiplicationTables = [0, 1, 2, 3, 10, 11];
 
 export const generateQuestion = () => {
   let table = multiplicationTables[Math.floor(Math.random() * multiplicationTables.length)];
