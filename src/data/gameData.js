@@ -42,7 +42,7 @@ export const gameData = {
   },
   4: {
     title: "Chapter 4",
-    story: "Derpythe Tiger leaps at a demon that jumped into the crowd.",
+    story: "Derpy the Tiger leaps at a demon that jumped into the crowd.",
     hero: "Derpy the Tiger",
     villain: "Crowd Demon",
     heroImage: tigerImg,
